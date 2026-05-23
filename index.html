@@ -193,6 +193,7 @@
 
     @media (max-width: 680px) {
       .nav-links { display: none; }
+      .lang-switcher { display: none; }
       .nav-hamburger { display: flex; }
       .mobile-menu { display: flex; }
       .logo-full { display: none; }
@@ -301,17 +302,18 @@
     .btn-primary:hover { background: var(--accent-g); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,232,.3); }
 
     .btn-ghost {
-      background: var(--white);
-      color: var(--text);
+      background: linear-gradient(90deg, #2563e8, #7c3aed);
+      color: var(--white);
       padding: .8rem 1.8rem;
       border-radius: 10px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: .95rem;
       text-decoration: none;
-      border: 1px solid var(--border);
-      transition: border-color .2s, color .2s, box-shadow .2s;
+      border: none;
+      transition: opacity .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(124,58,237,.25);
     }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 2px 8px rgba(37,99,232,.1); }
+    .btn-ghost:hover { opacity: .88; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(124,58,237,.35); }
 
     .hero-stats {
       display: flex;
@@ -621,7 +623,7 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-tag" data-i18n="hero.tag">Freelance SEO Specialist · 12+ Years Experience</div>
+    <div class="hero-tag" data-i18n="hero.tag">Freelance SEO Strategist · 12+ Years Experience</div>
     <h1 data-i18n-html="hero.h1">Turn organic search into your<br><em>most powerful growth channel.</em></h1>
     <p class="hero-sub" data-i18n="hero.sub">I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading — including AI and LLM search.</p>
     <div class="hero-actions">
@@ -869,7 +871,7 @@
         'nav.results': 'Results',
         'nav.niches': 'Niches',
         'nav.cta': 'Get in touch',
-        'hero.tag': 'Freelance SEO Specialist · 12+ Years Experience',
+        'hero.tag': 'Freelance SEO Strategist · 12+ Years Experience',
         'hero.h1': 'Turn organic search into your<br><em>most powerful growth channel.</em>',
         'hero.sub': 'I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading — including AI and LLM search.',
         'hero.btn1': 'Explore my services',
@@ -931,7 +933,7 @@
         'nav.results': 'Resultaten',
         'nav.niches': 'Niches',
         'nav.cta': 'Neem contact op',
-        'hero.tag': 'Freelance SEO Specialist · 12+ Jaar Ervaring',
+        'hero.tag': 'Freelance SEO Strategist · 12+ Jaar Ervaring',
         'hero.h1': 'Maak organisch zoeken tot je<br><em>krachtigste groeimotor.</em>',
         'hero.sub': 'Ik help bedrijven hun organische zichtbaarheid te vergroten met datagedreven SEO-strategie, technische expertise en een scherp oog op waar zoekgedrag naartoe gaat — inclusief AI en LLM-zoekgedrag.',
         'hero.btn1': 'Bekijk mijn diensten',
