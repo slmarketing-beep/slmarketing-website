@@ -49,6 +49,7 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
+      gap: 1rem;
     }
 
     .nav-logo {
@@ -60,16 +61,13 @@
     .logo-full { display: block; }
     .logo-icon { display: none; }
 
-    @media (max-width: 680px) {
-      .logo-full { display: none; }
-      .logo-icon { display: block; }
-    }
-
     .nav-links {
       display: flex;
       gap: 2rem;
       list-style: none;
       align-items: center;
+      flex: 1;
+      justify-content: center;
     }
     .nav-links a {
       color: var(--muted);
@@ -91,6 +89,28 @@
     }
     .nav-cta:hover { background: var(--accent-g) !important; }
 
+    /* ── LANG SWITCHER ── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: .15rem;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.25rem;
+      padding: .2rem .25rem;
+      border-radius: 6px;
+      opacity: .35;
+      transition: opacity .2s, transform .15s;
+      line-height: 1;
+    }
+    .lang-btn:hover { opacity: .7; transform: scale(1.1); }
+    .lang-btn.active { opacity: 1; }
+
+    /* ── HAMBURGER ── */
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -103,6 +123,7 @@
       padding: 4px;
       border-radius: 8px;
       transition: background .2s;
+      flex-shrink: 0;
     }
     .nav-hamburger:hover { background: var(--off); }
     .nav-hamburger span {
@@ -110,7 +131,7 @@
       height: 2px;
       background: var(--text);
       border-radius: 2px;
-      transition: transform .3s, opacity .3s, width .3s;
+      transition: transform .3s, opacity .3s;
       transform-origin: center;
     }
     .nav-hamburger span:nth-child(1) { width: 22px; }
@@ -120,6 +141,7 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 22px; }
 
+    /* ── MOBILE MENU ── */
     .mobile-menu {
       display: none;
       position: fixed;
@@ -146,7 +168,7 @@
       border-bottom: 1px solid var(--border);
       transition: color .2s;
     }
-    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:last-of-type { border-bottom: none; }
     .mobile-menu a:hover { color: var(--text); }
     .mobile-menu .mobile-cta {
       margin-top: .75rem;
@@ -158,13 +180,23 @@
       border-radius: 10px;
       font-weight: 600;
       box-shadow: 0 4px 14px rgba(37,99,232,.25);
+      border-bottom: none !important;
     }
-    .mobile-menu .mobile-cta:hover { background: var(--accent-g) !important; border-bottom: none !important; }
+    .mobile-menu .mobile-cta:hover { background: var(--accent-g) !important; }
+    .mobile-lang {
+      display: flex;
+      gap: .5rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-lang .lang-btn { font-size: 1.4rem; }
 
     @media (max-width: 680px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .mobile-menu { display: flex; }
+      .logo-full { display: none; }
+      .logo-icon { display: block; }
     }
 
     /* ── HERO ── */
@@ -337,7 +369,6 @@
 
     /* ── SERVICES ── */
     #services { background: var(--white); }
-
     .services-header { margin-bottom: 3.5rem; }
 
     .services-grid {
@@ -381,39 +412,13 @@
       flex-shrink: 0;
     }
     .service-icon svg { width: 22px; height: 22px; }
-
-    .service-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: .6rem;
-      letter-spacing: -.01em;
-    }
-    .service-card p {
-      font-size: .9rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-    .service-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .4rem;
-      margin-top: 1.25rem;
-    }
-    .service-tag {
-      font-size: .73rem;
-      font-weight: 600;
-      background: rgba(37,99,232,.07);
-      color: var(--accent);
-      padding: .25rem .65rem;
-      border-radius: 100px;
-    }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .6rem; letter-spacing: -.01em; }
+    .service-card p { font-size: .9rem; color: var(--muted); line-height: 1.65; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.25rem; }
+    .service-tag { font-size: .73rem; font-weight: 600; background: rgba(37,99,232,.07); color: var(--accent); padding: .25rem .65rem; border-radius: 100px; }
 
     /* ── ABOUT ── */
-    #about {
-      background: var(--off);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+    #about { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
     .about-grid {
       display: grid;
@@ -429,21 +434,9 @@
       aspect-ratio: 4/5;
       background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%);
       border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: .85rem;
-      font-weight: 600;
-      text-align: center;
-      padding: 2rem;
+      overflow: hidden;
     }
-    .about-photo-placeholder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-    }
+    .about-photo-placeholder img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
     .about-badge {
       position: absolute;
       bottom: -16px; right: -16px;
@@ -456,51 +449,20 @@
       font-size: .85rem;
       box-shadow: 0 8px 24px rgba(0,0,0,.08);
     }
-    .about-badge span {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: .2rem;
-    }
+    .about-badge span { display: block; font-size: 1.6rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: .2rem; }
 
     .about-text .section-title { max-width: none; }
-    .about-body {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .about-body p {
-      font-size: .95rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
+    .about-body { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .about-body p { font-size: .95rem; color: var(--muted); line-height: 1.75; }
 
-    .about-highlights {
-      margin-top: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: .65rem;
-    }
-    .highlight-item {
-      display: flex;
-      align-items: flex-start;
-      gap: .75rem;
-      font-size: .9rem;
-      color: var(--text);
-    }
+    .about-highlights { margin-top: 1.75rem; display: flex; flex-direction: column; gap: .65rem; }
+    .highlight-item { display: flex; align-items: flex-start; gap: .75rem; font-size: .9rem; color: var(--text); }
     .highlight-check {
       width: 20px; height: 20px;
       background: rgba(16,185,129,.1);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: .1rem;
-      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: .1rem; color: var(--green);
     }
     .highlight-check svg { width: 11px; height: 11px; }
 
@@ -512,20 +474,9 @@
     /* ── RESULTS ── */
     #results { background: var(--off-2); border-top: 1px solid #dce8ff; border-bottom: 1px solid #dce8ff; }
 
-    .results-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-bottom: 3.5rem;
-    }
+    .results-top { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; margin-bottom: 3.5rem; }
 
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.25rem;
-    }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
 
     .result-card {
       background: var(--white);
@@ -535,45 +486,21 @@
       transition: box-shadow .2s, transform .2s;
     }
     .result-card:hover { box-shadow: 0 6px 24px rgba(37,99,232,.1); transform: translateY(-2px); }
-
-    .result-num {
-      font-size: 2.4rem;
-      font-weight: 900;
-      letter-spacing: -.04em;
-      color: var(--text);
-      line-height: 1;
-      margin-bottom: .5rem;
-    }
+    .result-num { font-size: 2.4rem; font-weight: 900; letter-spacing: -.04em; color: var(--text); line-height: 1; margin-bottom: .5rem; }
     .result-num .accent { color: var(--accent); }
-    .result-card p {
-      font-size: .88rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .result-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
     .result-card p strong { color: var(--text); font-weight: 600; }
 
     /* ── NICHES ── */
     #niches { background: var(--white); }
-
     .niches-header { margin-bottom: 3rem; }
 
-    .niche-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .75rem;
-      margin-top: 2rem;
-    }
+    .niche-pills { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
     .niche-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: var(--off);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-size: .875rem;
-      font-weight: 500;
-      padding: .5rem 1rem;
-      border-radius: 100px;
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--off); border: 1px solid var(--border);
+      color: var(--text); font-size: .875rem; font-weight: 500;
+      padding: .5rem 1rem; border-radius: 100px;
       transition: background .2s, border-color .2s, color .2s;
     }
     .niche-pill:hover { background: rgba(37,99,232,.06); border-color: rgba(37,99,232,.25); color: var(--accent); }
@@ -581,25 +508,12 @@
     .niche-pill:hover svg { opacity: 1; }
 
     .tools-section { margin-top: 3.5rem; }
-    .tools-section h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 1.25rem;
-    }
-    .tool-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-    }
+    .tools-section h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 1.25rem; }
+    .tool-pills { display: flex; flex-wrap: wrap; gap: .6rem; }
     .tool-pill {
-      background: var(--off);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: .8rem;
-      font-weight: 600;
-      padding: .4rem .9rem;
-      border-radius: 8px;
+      background: var(--off); border: 1px solid var(--border);
+      color: var(--muted); font-size: .8rem; font-weight: 600;
+      padding: .4rem .9rem; border-radius: 8px;
       transition: border-color .2s, color .2s;
     }
     .tool-pill:hover { border-color: rgba(37,99,232,.3); color: var(--accent); }
@@ -607,9 +521,7 @@
     /* ── CONTACT ── */
     #contact {
       background: linear-gradient(160deg, #f0f6ff 0%, #f5f0ff 60%, #f0f6ff 100%);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      text-align: center; position: relative; overflow: hidden;
       border-top: 1px solid #dce8ff;
     }
     #contact::before {
@@ -617,47 +529,21 @@
       position: absolute;
       width: 700px; height: 400px;
       background: radial-gradient(ellipse, rgba(37,99,232,.06) 0%, transparent 70%);
-      bottom: -100px; left: 50%;
-      transform: translateX(-50%);
+      bottom: -100px; left: 50%; transform: translateX(-50%);
       pointer-events: none;
     }
 
     .contact-inner { position: relative; max-width: 640px; margin: 0 auto; }
-    .contact-inner h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -.03em;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-    }
-    .contact-inner > p {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
+    .contact-inner h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; color: var(--text); letter-spacing: -.03em; line-height: 1.15; margin-bottom: 1.25rem; }
+    .contact-inner > p { color: var(--muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem; }
 
-    .contact-links {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
     .contact-link {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      background: var(--white);
-      border: 1px solid var(--border);
-      color: var(--text);
-      text-decoration: none;
-      padding: .7rem 1.4rem;
-      border-radius: 10px;
-      font-size: .9rem;
-      font-weight: 500;
+      display: flex; align-items: center; gap: .6rem;
+      background: var(--white); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      padding: .7rem 1.4rem; border-radius: 10px;
+      font-size: .9rem; font-weight: 500;
       transition: border-color .2s, box-shadow .2s, color .2s;
       box-shadow: 0 1px 4px rgba(0,0,0,.05);
     }
@@ -667,14 +553,9 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--off);
-      border-top: 1px solid var(--border);
+      background: var(--off); border-top: 1px solid var(--border);
       padding: 1.5rem 5vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
     footer p { font-size: .8rem; color: var(--muted); }
     .footer-logo { display: flex; align-items: center; text-decoration: none; }
@@ -697,9 +578,7 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#hero">
-      <!-- Full logo: desktop -->
       <img class="logo-full" src="logo.svg" alt="SL Marketing" height="36">
-      <!-- Icon only: mobile -->
       <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 56 56">
         <rect width="56" height="56" fill="#185fa5" rx="14"/>
         <rect width="38" height="10" x="9" y="18" fill="none" stroke="#fff" stroke-width="2.5" rx="5"/>
@@ -712,12 +591,16 @@
       </svg>
     </a>
     <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="#niches">Niches</a></li>
-      <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#results" data-i18n="nav.results">Results</a></li>
+      <li><a href="#niches" data-i18n="nav.niches">Niches</a></li>
+      <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Get in touch</a></li>
     </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en" aria-label="English">🇬🇧</button>
+      <button class="lang-btn" data-lang="nl" aria-label="Nederlands">🇳🇱</button>
+    </div>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -725,50 +608,51 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#results">Results</a>
-    <a href="#niches">Niches</a>
-    <a href="#contact" class="mobile-cta">Get in touch</a>
+    <div class="mobile-lang">
+      <button class="lang-btn active" data-lang="en" aria-label="English">🇬🇧</button>
+      <button class="lang-btn" data-lang="nl" aria-label="Nederlands">🇳🇱</button>
+    </div>
+    <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#results" data-i18n="nav.results">Results</a>
+    <a href="#niches" data-i18n="nav.niches">Niches</a>
+    <a href="#contact" class="mobile-cta" data-i18n="nav.cta">Get in touch</a>
   </div>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-tag">Freelance SEO Specialist · 12+ Years Experience</div>
-    <h1>Turn organic search into your<br><em>most powerful growth channel.</em></h1>
-    <p class="hero-sub">
-      I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading — including AI and LLM search.
-    </p>
+    <div class="hero-tag" data-i18n="hero.tag">Freelance SEO Specialist · 12+ Years Experience</div>
+    <h1 data-i18n-html="hero.h1">Turn organic search into your<br><em>most powerful growth channel.</em></h1>
+    <p class="hero-sub" data-i18n="hero.sub">I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading — including AI and LLM search.</p>
     <div class="hero-actions">
-      <a href="#services" class="btn-primary">Explore my services</a>
-      <a href="#contact" class="btn-ghost">Let's talk</a>
+      <a href="#services" class="btn-primary" data-i18n="hero.btn1">Explore my services</a>
+      <a href="#contact" class="btn-ghost" data-i18n="hero.btn2">Let's talk</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><strong>12+</strong><span>Years in SEO</span></div>
-      <div class="hero-stat"><strong>200K+</strong><span>Monthly visitors built</span></div>
-      <div class="hero-stat"><strong>3×</strong><span>Traffic growth achieved</span></div>
-      <div class="hero-stat"><strong>Top 10</strong><span>iGaming sites managed</span></div>
+      <div class="hero-stat"><strong>12+</strong><span data-i18n="hero.stat1">Years in SEO</span></div>
+      <div class="hero-stat"><strong>200K+</strong><span data-i18n="hero.stat2">Monthly visitors built</span></div>
+      <div class="hero-stat"><strong>3×</strong><span data-i18n="hero.stat3">Traffic growth achieved</span></div>
+      <div class="hero-stat"><strong>Top 10</strong><span data-i18n="hero.stat4">iGaming sites managed</span></div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services">
     <div class="services-header reveal">
-      <span class="section-label">What I do</span>
-      <h2 class="section-title">Full-spectrum SEO,<br>from strategy to execution.</h2>
-      <p class="section-sub">Whether you need a complete SEO overhaul or targeted support — I cover the full stack.</p>
+      <span class="section-label" data-i18n="services.label">What I do</span>
+      <h2 class="section-title" data-i18n-html="services.title">Full-spectrum SEO,<br>from strategy to execution.</h2>
+      <p class="section-sub" data-i18n="services.sub">Whether you need a complete SEO overhaul or targeted support — I cover the full stack.</p>
     </div>
     <div class="services-grid">
 
       <div class="service-card reveal">
         <div class="service-icon">
-          <!-- Target / Strategy icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
           </svg>
         </div>
-        <h3>SEO Strategy &amp; Advice</h3>
-        <p>End-to-end SEO roadmaps tailored to your market and goals. From full site audits to competitive analysis and prioritised action plans that drive real results.</p>
+        <h3 data-i18n="s1.title">SEO Strategy &amp; Advice</h3>
+        <p data-i18n="s1.desc">End-to-end SEO roadmaps tailored to your market and goals. From full site audits to competitive analysis and prioritised action plans that drive real results.</p>
         <div class="service-tags">
           <span class="service-tag">Site Audits</span>
           <span class="service-tag">Keyword Research</span>
@@ -779,14 +663,13 @@
 
       <div class="service-card reveal">
         <div class="service-icon">
-          <!-- Settings / Technical icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
             <circle cx="12" cy="12" r="3"/>
           </svg>
         </div>
-        <h3>Technical SEO</h3>
-        <p>Deep technical analysis and hands-on implementation. Core Web Vitals, crawlability, structured data, site migrations, internal linking — making your site truly search-engine-ready.</p>
+        <h3 data-i18n="s2.title">Technical SEO</h3>
+        <p data-i18n="s2.desc">Deep technical analysis and hands-on implementation. Core Web Vitals, crawlability, structured data, site migrations, internal linking — making your site truly search-engine-ready.</p>
         <div class="service-tags">
           <span class="service-tag">Core Web Vitals</span>
           <span class="service-tag">Schema Markup</span>
@@ -797,14 +680,13 @@
 
       <div class="service-card reveal">
         <div class="service-icon">
-          <!-- Link / Content icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
           </svg>
         </div>
-        <h3>Content &amp; Link Building</h3>
-        <p>Conversion-focused content briefings, topical authority strategies, and high-quality outreach. I've led full link-building teams and know what it takes to build lasting authority.</p>
+        <h3 data-i18n="s3.title">Content &amp; Link Building</h3>
+        <p data-i18n="s3.desc">Conversion-focused content briefings, topical authority strategies, and high-quality outreach. I've led full link-building teams and know what it takes to build lasting authority.</p>
         <div class="service-tags">
           <span class="service-tag">Content Strategy</span>
           <span class="service-tag">Content Briefings</span>
@@ -815,14 +697,13 @@
 
       <div class="service-card reveal">
         <div class="service-icon">
-          <!-- Sparkles / AI icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3 9.5 9.5 3 12l6.5 2.5L12 21l2.5-6.5L21 12l-6.5-2.5Z"/>
             <path d="M5 3v3M3 5h3M19 18v3M17 20h3"/>
           </svg>
         </div>
-        <h3>LLM &amp; AI Search Optimisation</h3>
-        <p>Optimising for the future of search. I help brands become visible in ChatGPT, Perplexity, Google's AI Overviews, and other LLM-driven surfaces — before your competitors do.</p>
+        <h3 data-i18n="s4.title">LLM &amp; AI Search Optimisation</h3>
+        <p data-i18n="s4.desc">Optimising for the future of search. I help brands become visible in ChatGPT, Perplexity, Google's AI Overviews, and other LLM-driven surfaces — before your competitors do.</p>
         <div class="service-tags">
           <span class="service-tag">AI Overviews</span>
           <span class="service-tag">LLM Visibility</span>
@@ -842,47 +723,37 @@
           <img src="sjoerd-about.jpg" alt="Sjoerd Lagraauw">
         </div>
         <div class="about-badge">
-          <span>12+</span>Years of SEO
+          <span>12+</span><span data-i18n="about.badge">Years of SEO</span>
         </div>
       </div>
       <div class="about-text reveal">
-        <span class="section-label">About me</span>
-        <h2 class="section-title">Hi, I'm Sjoerd — SEO specialist, builder, and organic growth obsessive.</h2>
+        <span class="section-label" data-i18n="about.label">About me</span>
+        <h2 class="section-title" data-i18n="about.title">Hi, I'm Sjoerd — SEO specialist, builder, and organic growth obsessive.</h2>
         <div class="about-body">
-          <p>My SEO journey started with a backpack and a sense of curiosity. Sixteen years ago I set out to explore the world — and that same drive for exploration led me to build <strong>Reis-Expert.nl</strong> in 2013, which I grew into one of the leading Dutch travel affiliate platforms with over 200,000 unique monthly visitors.</p>
-          <p>The past four years have been shaped by working in one of the most competitive niches on the internet: iGaming. Here, algorithm volatility is extreme, margins are tight, and only data-driven, technically excellent SEO survives. I've thrived in it — managing two of the largest iGaming affiliate sites and leading a full team of SEO specialists and outreach experts.</p>
-          <p>Today I take that experience and apply it to businesses across all sectors.</p>
+          <p data-i18n-html="about.p1">My SEO journey started with a backpack and a sense of curiosity. Sixteen years ago I set out to explore the world — and that same drive for exploration led me to build <strong>Reis-Expert.nl</strong> in 2013, which I grew into one of the leading Dutch travel affiliate platforms with over 200,000 unique monthly visitors.</p>
+          <p data-i18n="about.p2">The past four years have been shaped by working in one of the most competitive niches on the internet: iGaming. Here, algorithm volatility is extreme, margins are tight, and only data-driven, technically excellent SEO survives. I've thrived in it — managing two of the largest iGaming affiliate sites and leading a full team of SEO specialists and outreach experts.</p>
+          <p data-i18n="about.p3">Today I take that experience and apply it to businesses across all sectors.</p>
         </div>
         <div class="about-highlights">
           <div class="highlight-item">
-            <div class="highlight-check">
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg>
-            </div>
-            <span>Built Reis-Expert.nl to 200,000+ monthly visitors from scratch</span>
+            <div class="highlight-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></div>
+            <span data-i18n="about.h1">Built Reis-Expert.nl to 200,000+ monthly visitors from scratch</span>
           </div>
           <div class="highlight-item">
-            <div class="highlight-check">
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg>
-            </div>
-            <span>Managed two top-10 iGaming affiliate websites</span>
+            <div class="highlight-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></div>
+            <span data-i18n="about.h2">Managed two top-10 iGaming affiliate websites</span>
           </div>
           <div class="highlight-item">
-            <div class="highlight-check">
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg>
-            </div>
-            <span>Revived a "dead" domain — tripled traffic and significantly increased conversions</span>
+            <div class="highlight-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></div>
+            <span data-i18n="about.h3">Revived a "dead" domain — tripled traffic and significantly increased conversions</span>
           </div>
           <div class="highlight-item">
-            <div class="highlight-check">
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg>
-            </div>
-            <span>Led and coached a team of SEO specialists and outreach experts for 18+ months</span>
+            <div class="highlight-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></div>
+            <span data-i18n="about.h4">Led and coached a team of SEO specialists and outreach experts for 18+ months</span>
           </div>
           <div class="highlight-item">
-            <div class="highlight-check">
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg>
-            </div>
-            <span>Deep experience with LLM/AI search — where Google is heading next</span>
+            <div class="highlight-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></div>
+            <span data-i18n="about.h5">Deep experience with LLM/AI search — where Google is heading next</span>
           </div>
         </div>
       </div>
@@ -893,27 +764,27 @@
   <section id="results">
     <div class="results-top">
       <div class="reveal">
-        <span class="section-label">Results</span>
-        <h2 class="section-title">Real results<br>in demanding niches.</h2>
+        <span class="section-label" data-i18n="results.label">Results</span>
+        <h2 class="section-title" data-i18n-html="results.title">Real results<br>in demanding niches.</h2>
       </div>
-      <p class="section-sub reveal">Numbers that matter — achieved in high-competition environments where only the best SEO wins.</p>
+      <p class="section-sub reveal" data-i18n="results.sub">Numbers that matter — achieved in high-competition environments where only the best SEO wins.</p>
     </div>
     <div class="results-grid">
       <div class="result-card reveal">
         <div class="result-num">200<span class="accent">K+</span></div>
-        <p><strong>Monthly unique visitors</strong> built for Reis-Expert.nl, one of the leading Dutch travel affiliate platforms.</p>
+        <p data-i18n-html="r1.p"><strong>Monthly unique visitors</strong> built for Reis-Expert.nl, one of the leading Dutch travel affiliate platforms.</p>
       </div>
       <div class="result-card reveal">
         <div class="result-num">3<span class="accent">×</span></div>
-        <p><strong>Traffic tripled</strong> after reviving a near-dead domain through technical cleanup, content restructuring, and authority building.</p>
+        <p data-i18n-html="r2.p"><strong>Traffic tripled</strong> after reviving a near-dead domain through technical cleanup, content restructuring, and authority building.</p>
       </div>
       <div class="result-card reveal">
         <div class="result-num">Top <span class="accent">2</span></div>
-        <p><strong>iGaming affiliate sites</strong> managed simultaneously — full technical and content strategy.</p>
+        <p data-i18n-html="r3.p"><strong>iGaming affiliate sites</strong> managed simultaneously — full technical and content strategy.</p>
       </div>
       <div class="result-card reveal">
         <div class="result-num">18<span class="accent">mo+</span></div>
-        <p><strong>Team leadership</strong> of SEO specialists and outreach experts — KPIs, process improvements, quality output.</p>
+        <p data-i18n-html="r4.p"><strong>Team leadership</strong> of SEO specialists and outreach experts — KPIs, process improvements, quality output.</p>
       </div>
     </div>
   </section>
@@ -921,76 +792,28 @@
   <!-- NICHES & TOOLS -->
   <section id="niches">
     <div class="niches-header reveal">
-      <span class="section-label">Experience</span>
-      <h2 class="section-title">Worked across industries.<br>Proven in the toughest ones.</h2>
-      <p class="section-sub">From regulated and high-competition niches to e-commerce and affiliate — I've built organic growth where it's never easy.</p>
+      <span class="section-label" data-i18n="niches.label">Experience</span>
+      <h2 class="section-title" data-i18n-html="niches.title">Worked across industries.<br>Proven in the toughest ones.</h2>
+      <p class="section-sub" data-i18n="niches.sub">From regulated and high-competition niches to e-commerce and affiliate — I've built organic growth where it's never easy.</p>
     </div>
     <div class="niche-pills reveal">
-
-      <span class="niche-pill">
-        <!-- Dice icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>
-        iGaming
-      </span>
-
-      <span class="niche-pill">
-        <!-- Plane icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4c-2 0-4 2-3.5 3.5L11 11 3.8 17.2l1.5 1.5L11 16l1.5 4.5 1.5 1.5Z"/></svg>
-        Travel &amp; Tourism
-      </span>
-
-      <span class="niche-pill">
-        <!-- Tag icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H6a2 2 0 0 0-2 2v6a2 2 0 0 0 .59 1.42l9 9a2 2 0 0 0 2.82 0l6-6a2 2 0 0 0 0-2.83l-9-9A2 2 0 0 0 12 2z"/><circle cx="8" cy="8" r="1" fill="currentColor" stroke="none"/></svg>
-        Fashion &amp; Bridal
-      </span>
-
-      <span class="niche-pill">
-        <!-- Shopping bag icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        E-commerce
-      </span>
-
-      <span class="niche-pill">
-        <!-- Trending up icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        Finance &amp; Insurance
-      </span>
-
-      <span class="niche-pill">
-        <!-- Home icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Real Estate
-      </span>
-
-      <span class="niche-pill">
-        <!-- Share icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        Affiliate Marketing
-      </span>
-
-      <span class="niche-pill">
-        <!-- Monitor icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        SaaS &amp; Tech
-      </span>
-
+      <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg><span data-i18n="niche.igaming">iGaming</span></span>
+      <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4c-2 0-4 2-3.5 3.5L11 11 3.8 17.2l1.5 1.5L11 16l1.5 4.5 1.5 1.5Z"/></svg><span data-i18n="niche.travel">Travel &amp; Tourism</span></span>
+      <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H6a2 2 0 0 0-2 2v6a2 2 0 0 0 .59 1.42l9 9a2 2 0 0 0 2.82 0l6-6a2 2 0 0 0 0-2.83l-9-9A2 2 0 0 0 12 2z"/><circle cx="8" cy="8" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="niche.fashion">Fashion &amp; Bridal</span></span>
+      <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span data-i18n="niche.ecom">E-commerce</span></span>
+      <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span data-i18n="niche.finance">Finance &amp; Insurance</span></span>
+      <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-i18n="niche.realestate">Real Estate</span></span>
+      <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span data-i18n="niche.affiliate">Affiliate Marketing</span></span>
+      <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span data-i18n="niche.saas">SaaS &amp; Tech</span></span>
     </div>
     <div class="tools-section reveal">
-      <h3>Tools &amp; platforms I work with</h3>
+      <h3 data-i18n="tools.title">Tools &amp; platforms I work with</h3>
       <div class="tool-pills">
-        <span class="tool-pill">Ahrefs</span>
-        <span class="tool-pill">SEMrush</span>
-        <span class="tool-pill">Screaming Frog</span>
-        <span class="tool-pill">Google Search Console</span>
-        <span class="tool-pill">Google Analytics 4</span>
-        <span class="tool-pill">Sitebulb</span>
-        <span class="tool-pill">Majestic</span>
-        <span class="tool-pill">SurferSEO</span>
-        <span class="tool-pill">Lumar</span>
-        <span class="tool-pill">Looker Studio</span>
-        <span class="tool-pill">WordPress</span>
-        <span class="tool-pill">ChatGPT / Claude</span>
+        <span class="tool-pill">Ahrefs</span><span class="tool-pill">SEMrush</span><span class="tool-pill">Screaming Frog</span>
+        <span class="tool-pill">Google Search Console</span><span class="tool-pill">Google Analytics 4</span>
+        <span class="tool-pill">Sitebulb</span><span class="tool-pill">Majestic</span><span class="tool-pill">SurferSEO</span>
+        <span class="tool-pill">Lumar</span><span class="tool-pill">Looker Studio</span>
+        <span class="tool-pill">WordPress</span><span class="tool-pill">ChatGPT / Claude</span>
       </div>
     </div>
   </section>
@@ -998,9 +821,9 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
-      <span class="section-label">Get in touch</span>
-      <h2>Ready to grow your<br>organic traffic?</h2>
-      <p>I'm available for freelance projects, interim SEO roles, and advisory work. Let's have a no-obligation conversation about what's possible for your site.</p>
+      <span class="section-label" data-i18n="contact.label">Get in touch</span>
+      <h2 data-i18n-html="contact.title">Ready to grow your<br>organic traffic?</h2>
+      <p data-i18n="contact.sub">I'm available for freelance projects, interim SEO roles, and advisory work. Let's have a no-obligation conversation about what's possible for your site.</p>
       <div class="contact-links">
         <a href="mailto:sjoerd@slmarketing.nl" class="contact-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
@@ -1015,7 +838,7 @@
           LinkedIn
         </a>
       </div>
-      <a href="mailto:sjoerd@slmarketing.nl" class="btn-primary" style="font-size:1rem;padding:.9rem 2.2rem;">Send me a message →</a>
+      <a href="mailto:sjoerd@slmarketing.nl" class="btn-primary" style="font-size:1rem;padding:.9rem 2.2rem;" data-i18n="contact.cta">Send me a message →</a>
     </div>
   </section>
 
@@ -1034,10 +857,168 @@
         <text x="31" y="44" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="10" font-weight="300" letter-spacing=".5">MKT</text>
       </svg>
     </a>
-    <p>© 2026 SL Marketing · Netherlands</p>
+    <p data-i18n="footer.copy">© 2026 SL Marketing · Netherlands</p>
   </footer>
 
   <script>
+    /* ── TRANSLATIONS ── */
+    const t = {
+      en: {
+        'nav.services': 'Services',
+        'nav.about': 'About',
+        'nav.results': 'Results',
+        'nav.niches': 'Niches',
+        'nav.cta': 'Get in touch',
+        'hero.tag': 'Freelance SEO Specialist · 12+ Years Experience',
+        'hero.h1': 'Turn organic search into your<br><em>most powerful growth channel.</em>',
+        'hero.sub': 'I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading — including AI and LLM search.',
+        'hero.btn1': 'Explore my services',
+        'hero.btn2': "Let's talk",
+        'hero.stat1': 'Years in SEO',
+        'hero.stat2': 'Monthly visitors built',
+        'hero.stat3': 'Traffic growth achieved',
+        'hero.stat4': 'iGaming sites managed',
+        'services.label': 'What I do',
+        'services.title': 'Full-spectrum SEO,<br>from strategy to execution.',
+        'services.sub': 'Whether you need a complete SEO overhaul or targeted support — I cover the full stack.',
+        's1.title': 'SEO Strategy & Advice',
+        's1.desc': 'End-to-end SEO roadmaps tailored to your market and goals. From full site audits to competitive analysis and prioritised action plans that drive real results.',
+        's2.title': 'Technical SEO',
+        's2.desc': 'Deep technical analysis and hands-on implementation. Core Web Vitals, crawlability, structured data, site migrations, internal linking — making your site truly search-engine-ready.',
+        's3.title': 'Content & Link Building',
+        's3.desc': "Conversion-focused content briefings, topical authority strategies, and high-quality outreach. I've led full link-building teams and know what it takes to build lasting authority.",
+        's4.title': 'LLM & AI Search Optimisation',
+        's4.desc': "Optimising for the future of search. I help brands become visible in ChatGPT, Perplexity, Google's AI Overviews, and other LLM-driven surfaces — before your competitors do.",
+        'about.label': 'About me',
+        'about.title': "Hi, I'm Sjoerd — SEO specialist, builder, and organic growth obsessive.",
+        'about.p1': 'My SEO journey started with a backpack and a sense of curiosity. Sixteen years ago I set out to explore the world — and that same drive for exploration led me to build <strong>Reis-Expert.nl</strong> in 2013, which I grew into one of the leading Dutch travel affiliate platforms with over 200,000 unique monthly visitors.',
+        'about.p2': "The past four years have been shaped by working in one of the most competitive niches on the internet: iGaming. Here, algorithm volatility is extreme, margins are tight, and only data-driven, technically excellent SEO survives. I've thrived in it — managing two of the largest iGaming affiliate sites and leading a full team of SEO specialists and outreach experts.",
+        'about.p3': 'Today I take that experience and apply it to businesses across all sectors.',
+        'about.h1': 'Built Reis-Expert.nl to 200,000+ monthly visitors from scratch',
+        'about.h2': 'Managed two top-10 iGaming affiliate websites',
+        'about.h3': 'Revived a "dead" domain — tripled traffic and significantly increased conversions',
+        'about.h4': 'Led and coached a team of SEO specialists and outreach experts for 18+ months',
+        'about.h5': 'Deep experience with LLM/AI search — where Google is heading next',
+        'about.badge': 'Years of SEO',
+        'results.label': 'Results',
+        'results.title': 'Real results<br>in demanding niches.',
+        'results.sub': 'Numbers that matter — achieved in high-competition environments where only the best SEO wins.',
+        'r1.p': '<strong>Monthly unique visitors</strong> built for Reis-Expert.nl, one of the leading Dutch travel affiliate platforms.',
+        'r2.p': '<strong>Traffic tripled</strong> after reviving a near-dead domain through technical cleanup, content restructuring, and authority building.',
+        'r3.p': '<strong>iGaming affiliate sites</strong> managed simultaneously — full technical and content strategy.',
+        'r4.p': '<strong>Team leadership</strong> of SEO specialists and outreach experts — KPIs, process improvements, quality output.',
+        'niches.label': 'Experience',
+        'niches.title': 'Worked across industries.<br>Proven in the toughest ones.',
+        'niches.sub': "From regulated and high-competition niches to e-commerce and affiliate — I've built organic growth where it's never easy.",
+        'tools.title': 'Tools & platforms I work with',
+        'niche.igaming': 'iGaming',
+        'niche.travel': 'Travel & Tourism',
+        'niche.fashion': 'Fashion & Bridal',
+        'niche.ecom': 'E-commerce',
+        'niche.finance': 'Finance & Insurance',
+        'niche.realestate': 'Real Estate',
+        'niche.affiliate': 'Affiliate Marketing',
+        'niche.saas': 'SaaS & Tech',
+        'contact.label': 'Get in touch',
+        'contact.title': 'Ready to grow your<br>organic traffic?',
+        'contact.sub': "I'm available for freelance projects, interim SEO roles, and advisory work. Let's have a no-obligation conversation about what's possible for your site.",
+        'contact.cta': 'Send me a message →',
+        'footer.copy': '© 2026 SL Marketing · Netherlands',
+      },
+      nl: {
+        'nav.services': 'Diensten',
+        'nav.about': 'Over mij',
+        'nav.results': 'Resultaten',
+        'nav.niches': 'Niches',
+        'nav.cta': 'Neem contact op',
+        'hero.tag': 'Freelance SEO Specialist · 12+ Jaar Ervaring',
+        'hero.h1': 'Maak organisch zoeken tot je<br><em>krachtigste groeimotor.</em>',
+        'hero.sub': 'Ik help bedrijven hun organische zichtbaarheid te vergroten met datagedreven SEO-strategie, technische expertise en een scherp oog op waar zoekgedrag naartoe gaat — inclusief AI en LLM-zoekgedrag.',
+        'hero.btn1': 'Bekijk mijn diensten',
+        'hero.btn2': 'Laten we praten',
+        'hero.stat1': 'Jaar in SEO',
+        'hero.stat2': 'Maandelijkse bezoekers opgebouwd',
+        'hero.stat3': 'Verkeersgroei gerealiseerd',
+        'hero.stat4': 'iGaming sites beheerd',
+        'services.label': 'Wat ik doe',
+        'services.title': 'Volledig SEO-spectrum,<br>van strategie tot uitvoering.',
+        'services.sub': 'Of je nu een complete SEO-revisie of gerichte ondersteuning nodig hebt — ik dek het volledige spectrum.',
+        's1.title': 'SEO Strategie & Advies',
+        's1.desc': 'End-to-end SEO-roadmaps afgestemd op jouw markt en doelen. Van volledige site-audits tot concurrentieanalyse en geprioriteerde actieplannen die echt resultaat opleveren.',
+        's2.title': 'Technische SEO',
+        's2.desc': 'Diepgaande technische analyse en hands-on implementatie. Core Web Vitals, crawlbaarheid, gestructureerde data, site-migraties, interne linking — zodat jouw site echt klaar is voor zoekmachines.',
+        's3.title': 'Content & Linkbuilding',
+        's3.desc': "Conversiegerichte contentbriefings, topical authority-strategieën en kwalitatieve outreach. Ik heb volledige linkbuilding-teams geleid en weet wat er nodig is om blijvende autoriteit op te bouwen.",
+        's4.title': 'LLM & AI Zoekmachine Optimalisatie',
+        's4.desc': "Optimaliseren voor de toekomst van zoeken. Ik help merken zichtbaar te worden in ChatGPT, Perplexity, Google's AI Overviews en andere LLM-gedreven kanalen — voordat je concurrenten dat doen.",
+        'about.label': 'Over mij',
+        'about.title': 'Hoi, ik ben Sjoerd — SEO-specialist, bouwer en organische groei-fanaat.',
+        'about.p1': 'Mijn SEO-verhaal begon met een rugzak en nieuwsgierigheid. Zestien jaar geleden trok ik de wereld in — en diezelfde drang naar ontdekking leidde me in 2013 naar het bouwen van <strong>Reis-Expert.nl</strong>, dat ik uitgroeide tot een van de grootste Nederlandse reisaffiliate-platformen met meer dan 200.000 unieke bezoekers per maand.',
+        'about.p2': 'De afgelopen vier jaar stonden in het teken van een van de meest competitieve niches op het internet: iGaming. Hier is algoritme-volatiliteit extreem, marges zijn krap en alleen datagedreven, technisch excellente SEO overleeft. Ik heb er geflorid — met twee van de grootste iGaming-affiliatesites en leiding over een volledig team van SEO-specialisten en outreach-experts.',
+        'about.p3': 'Vandaag pas ik die ervaring toe op bedrijven in alle sectoren.',
+        'about.h1': 'Reis-Expert.nl opgebouwd tot 200.000+ maandelijkse bezoekers vanuit nul',
+        'about.h2': 'Twee top-10 iGaming-affiliatewebsites beheerd',
+        'about.h3': 'Een "dood" domein nieuw leven ingeblazen — verkeer verdrievoudigd en conversies significant verhoogd',
+        'about.h4': 'Een team van SEO-specialisten en outreach-experts geleid en gecoacht gedurende 18+ maanden',
+        'about.h5': 'Diepgaande ervaring met LLM/AI-zoekgedrag — waar Google naartoe gaat',
+        'about.badge': 'Jaar SEO-ervaring',
+        'results.label': 'Resultaten',
+        'results.title': 'Echte resultaten<br>in veeleisende niches.',
+        'results.sub': 'Cijfers die ertoe doen — behaald in zeer competitieve omgevingen waar alleen de beste SEO wint.',
+        'r1.p': '<strong>Maandelijkse unieke bezoekers</strong> opgebouwd voor Reis-Expert.nl, een van de grootste Nederlandse reisaffiliate-platformen.',
+        'r2.p': '<strong>Verkeer verdrievoudigd</strong> na het nieuw leven inblazen van een bijna-dood domein via technische opschoning, content-herstructurering en autoriteitsopbouw.',
+        'r3.p': '<strong>iGaming-affiliatesites</strong> gelijktijdig beheerd — volledige technische en contentstrategie.',
+        'r4.p': '<strong>Teamleiderschap</strong> van SEO-specialisten en outreach-experts — KPI\'s, procesverbeteringen, kwalitatieve output.',
+        'niches.label': 'Ervaring',
+        'niches.title': 'Actief in diverse sectoren.<br>Bewezen in de zwaarste.',
+        'niches.sub': "Van gereguleerde en zeer competitieve niches tot e-commerce en affiliate — ik heb organische groei gerealiseerd waar het nooit makkelijk is.",
+        'tools.title': 'Tools & platformen waarmee ik werk',
+        'niche.igaming': 'iGaming',
+        'niche.travel': 'Reizen & Toerisme',
+        'niche.fashion': 'Mode & Bruid',
+        'niche.ecom': 'E-commerce',
+        'niche.finance': 'Financiën & Verzekeringen',
+        'niche.realestate': 'Vastgoed',
+        'niche.affiliate': 'Affiliate Marketing',
+        'niche.saas': 'SaaS & Tech',
+        'contact.label': 'Neem contact op',
+        'contact.title': 'Klaar om jouw organisch<br>verkeer te laten groeien?',
+        'contact.sub': 'Ik ben beschikbaar voor freelanceprojecten, interim SEO-functies en advieswerk. Laten we een vrijblijvend gesprek hebben over wat er mogelijk is voor jouw site.',
+        'contact.cta': 'Stuur me een bericht →',
+        'footer.copy': '© 2026 SL Marketing · Nederland',
+      }
+    };
+
+    /* ── LANGUAGE ENGINE ── */
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[lang][key] !== undefined) el.textContent = t[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    function detectLang() {
+      const saved = localStorage.getItem('lang');
+      if (saved === 'en' || saved === 'nl') return saved;
+      return (navigator.language || '').startsWith('nl') ? 'nl' : 'en';
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    });
+
+    applyLang(detectLang());
+
+    /* ── HAMBURGER ── */
     const hamburger = document.querySelector('.nav-hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1055,6 +1036,7 @@
       });
     });
 
+    /* ── SCROLL REVEAL ── */
     const observer = new IntersectionObserver(
       (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
