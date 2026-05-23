@@ -676,8 +676,7 @@
       gap: 1rem;
     }
     footer p { font-size: .8rem; color: var(--muted); }
-    .footer-logo { font-size: .875rem; font-weight: 800; color: var(--text); text-decoration: none; }
-    .footer-logo span { color: var(--accent); }
+    .footer-logo { display: flex; align-items: center; text-decoration: none; }
 
     /* ── SCROLL REVEAL ── */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
@@ -1021,7 +1020,19 @@
 
   <!-- FOOTER -->
   <footer>
-    <a class="footer-logo" href="#hero">SL<span>Marketing</span></a>
+    <a class="footer-logo" href="#hero">
+      <img class="logo-full" src="logo.svg" alt="SL Marketing" height="32">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 56 56">
+        <rect width="56" height="56" fill="#185fa5" rx="14"/>
+        <rect width="38" height="10" x="9" y="18" fill="none" stroke="#fff" stroke-width="2.5" rx="5"/>
+        <path stroke="#fff" stroke-linecap="round" stroke-width="2" d="M13 23h7"/>
+        <path stroke="rgba(255,255,255,0.35)" stroke-linecap="round" stroke-width="2" d="M23 23h15"/>
+        <path stroke="#fff" stroke-linecap="round" stroke-width="2.5" d="m40 26 4 4"/>
+        <text x="13" y="44" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="1">SL</text>
+        <path stroke="rgba(255,255,255,0.25)" d="M28 38v8"/>
+        <text x="31" y="44" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="10" font-weight="300" letter-spacing=".5">MKT</text>
+      </svg>
+    </a>
     <p>© 2026 SL Marketing · Netherlands</p>
   </footer>
 
