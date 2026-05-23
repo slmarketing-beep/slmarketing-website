@@ -98,17 +98,20 @@
     }
     .lang-btn {
       background: none;
-      border: none;
+      border: 2px solid transparent;
       cursor: pointer;
-      font-size: 1.25rem;
-      padding: .2rem .25rem;
-      border-radius: 6px;
-      opacity: .35;
-      transition: opacity .2s, transform .15s;
-      line-height: 1;
+      padding: 2px;
+      border-radius: 4px;
+      opacity: .45;
+      transition: opacity .2s, transform .15s, border-color .2s;
+      line-height: 0;
+      display: flex;
+      align-items: center;
     }
-    .lang-btn:hover { opacity: .7; transform: scale(1.1); }
-    .lang-btn.active { opacity: 1; }
+    .lang-btn svg { border-radius: 2px; display: block; width: 22px; height: 15px; }
+    .lang-btn:hover { opacity: .75; transform: scale(1.08); }
+    .lang-btn.active { opacity: 1; border-color: var(--accent); }
+    .mobile-lang .lang-btn svg { width: 28px; height: 19px; }
 
     /* ── HAMBURGER ── */
     .nav-hamburger {
@@ -600,8 +603,8 @@
       <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Get in touch</a></li>
     </ul>
     <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="en" aria-label="English">🇬🇧</button>
-      <button class="lang-btn" data-lang="nl" aria-label="Nederlands">🇳🇱</button>
+      <button class="lang-btn active" data-lang="en" aria-label="English"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="12"/><path d="M0,0 L25,17 M35,23 L60,40 M60,0 L35,17 M25,23 L0,40" stroke="#C8102E" stroke-width="8"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="13"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg></button>
+      <button class="lang-btn" data-lang="nl" aria-label="Nederlands"><svg viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="4" fill="#AE1C28"/><rect y="4" width="18" height="4" fill="#fff"/><rect y="8" width="18" height="4" fill="#21468B"/></svg></button>
     </div>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -611,8 +614,8 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-lang">
-      <button class="lang-btn active" data-lang="en" aria-label="English">🇬🇧</button>
-      <button class="lang-btn" data-lang="nl" aria-label="Nederlands">🇳🇱</button>
+      <button class="lang-btn active" data-lang="en" aria-label="English"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="12"/><path d="M0,0 L25,17 M35,23 L60,40 M60,0 L35,17 M25,23 L0,40" stroke="#C8102E" stroke-width="8"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="13"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/></svg></button>
+      <button class="lang-btn" data-lang="nl" aria-label="Nederlands"><svg viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="4" fill="#AE1C28"/><rect y="4" width="18" height="4" fill="#fff"/><rect y="8" width="18" height="4" fill="#21468B"/></svg></button>
     </div>
     <a href="#services" data-i18n="nav.services">Services</a>
     <a href="#about" data-i18n="nav.about">About</a>
@@ -625,7 +628,7 @@
   <section id="hero">
     <div class="hero-tag" data-i18n="hero.tag">Freelance SEO Strategist · 12+ Years Experience</div>
     <h1 data-i18n-html="hero.h1">Turn organic search into your<br><em>most powerful growth channel.</em></h1>
-    <p class="hero-sub" data-i18n="hero.sub">I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading — including AI and LLM search.</p>
+    <p class="hero-sub" data-i18n="hero.sub">I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading, including AI and LLM search.</p>
     <div class="hero-actions">
       <a href="#services" class="btn-primary" data-i18n="hero.btn1">Explore my services</a>
       <a href="#contact" class="btn-ghost" data-i18n="hero.btn2">Let's talk</a>
@@ -643,7 +646,7 @@
     <div class="services-header reveal">
       <span class="section-label" data-i18n="services.label">What I do</span>
       <h2 class="section-title" data-i18n-html="services.title">Full-spectrum SEO,<br>from strategy to execution.</h2>
-      <p class="section-sub" data-i18n="services.sub">Whether you need a complete SEO overhaul or targeted support — I cover the full stack.</p>
+      <p class="section-sub" data-i18n="services.sub">Whether you need a complete SEO overhaul or targeted support. I cover the full stack.</p>
     </div>
     <div class="services-grid">
 
@@ -671,7 +674,7 @@
           </svg>
         </div>
         <h3 data-i18n="s2.title">Technical SEO</h3>
-        <p data-i18n="s2.desc">Deep technical analysis and hands-on implementation. Core Web Vitals, crawlability, structured data, site migrations, internal linking — making your site truly search-engine-ready.</p>
+        <p data-i18n="s2.desc">Deep technical analysis and hands-on implementation. Core Web Vitals, crawlability, structured data, site migrations, internal linking. Making your site truly search-engine-ready.</p>
         <div class="service-tags">
           <span class="service-tag">Core Web Vitals</span>
           <span class="service-tag">Schema Markup</span>
@@ -705,7 +708,7 @@
           </svg>
         </div>
         <h3 data-i18n="s4.title">LLM &amp; AI Search Optimisation</h3>
-        <p data-i18n="s4.desc">Optimising for the future of search. I help brands become visible in ChatGPT, Perplexity, Google's AI Overviews, and other LLM-driven surfaces — before your competitors do.</p>
+        <p data-i18n="s4.desc">Optimising for the future of search. I help brands become visible in ChatGPT, Perplexity, Google's AI Overviews, and other LLM-driven surfaces. Before your competitors do.</p>
         <div class="service-tags">
           <span class="service-tag">AI Overviews</span>
           <span class="service-tag">LLM Visibility</span>
@@ -730,10 +733,10 @@
       </div>
       <div class="about-text reveal">
         <span class="section-label" data-i18n="about.label">About me</span>
-        <h2 class="section-title" data-i18n="about.title">Hi, I'm Sjoerd — SEO specialist, builder, and organic growth obsessive.</h2>
+        <h2 class="section-title" data-i18n="about.title">Hi, I'm Sjoerd. SEO specialist, builder, and organic growth obsessive.</h2>
         <div class="about-body">
-          <p data-i18n-html="about.p1">My SEO journey started with a backpack and a sense of curiosity. Sixteen years ago I set out to explore the world — and that same drive for exploration led me to build <strong>Reis-Expert.nl</strong> in 2013, which I grew into one of the leading Dutch travel affiliate platforms with over 200,000 unique monthly visitors.</p>
-          <p data-i18n="about.p2">The past four years have been shaped by working in one of the most competitive niches on the internet: iGaming. Here, algorithm volatility is extreme, margins are tight, and only data-driven, technically excellent SEO survives. I've thrived in it — managing two of the largest iGaming affiliate sites and leading a full team of SEO specialists and outreach experts.</p>
+          <p data-i18n-html="about.p1">My SEO journey started with a backpack and a sense of curiosity. Sixteen years ago I set out to explore the world. That same drive for exploration led me to build <strong>Reis-Expert.nl</strong> in 2013, which I grew into one of the leading Dutch travel affiliate platforms with over 200,000 unique monthly visitors.</p>
+          <p data-i18n="about.p2">The past four years have been shaped by working in one of the most competitive niches on the internet: iGaming. Here, algorithm volatility is extreme, margins are tight, and only data-driven, technically excellent SEO survives. I've thrived in it, managing two of the largest iGaming affiliate sites and leading a full team of SEO specialists and outreach experts.</p>
           <p data-i18n="about.p3">Today I take that experience and apply it to businesses across all sectors.</p>
         </div>
         <div class="about-highlights">
@@ -747,7 +750,7 @@
           </div>
           <div class="highlight-item">
             <div class="highlight-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></div>
-            <span data-i18n="about.h3">Revived a "dead" domain — tripled traffic and significantly increased conversions</span>
+            <span data-i18n="about.h3">Revived a "dead" domain. Tripled traffic and significantly increased conversions</span>
           </div>
           <div class="highlight-item">
             <div class="highlight-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></div>
@@ -755,7 +758,7 @@
           </div>
           <div class="highlight-item">
             <div class="highlight-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3 3 5-5"/></svg></div>
-            <span data-i18n="about.h5">Deep experience with LLM/AI search — where Google is heading next</span>
+            <span data-i18n="about.h5">Deep experience with LLM/AI search, where Google is heading next</span>
           </div>
         </div>
       </div>
@@ -769,7 +772,7 @@
         <span class="section-label" data-i18n="results.label">Results</span>
         <h2 class="section-title" data-i18n-html="results.title">Real results<br>in demanding niches.</h2>
       </div>
-      <p class="section-sub reveal" data-i18n="results.sub">Numbers that matter — achieved in high-competition environments where only the best SEO wins.</p>
+      <p class="section-sub reveal" data-i18n="results.sub">Numbers that matter, achieved in high-competition environments where only the best SEO wins.</p>
     </div>
     <div class="results-grid">
       <div class="result-card reveal">
@@ -782,11 +785,11 @@
       </div>
       <div class="result-card reveal">
         <div class="result-num">Top <span class="accent">2</span></div>
-        <p data-i18n-html="r3.p"><strong>iGaming affiliate sites</strong> managed simultaneously — full technical and content strategy.</p>
+        <p data-i18n-html="r3.p"><strong>iGaming affiliate sites</strong> managed simultaneously. Full technical and content strategy.</p>
       </div>
       <div class="result-card reveal">
         <div class="result-num">18<span class="accent">mo+</span></div>
-        <p data-i18n-html="r4.p"><strong>Team leadership</strong> of SEO specialists and outreach experts — KPIs, process improvements, quality output.</p>
+        <p data-i18n-html="r4.p"><strong>Team leadership</strong> of SEO specialists and outreach experts. KPIs, process improvements, quality output.</p>
       </div>
     </div>
   </section>
@@ -796,7 +799,7 @@
     <div class="niches-header reveal">
       <span class="section-label" data-i18n="niches.label">Experience</span>
       <h2 class="section-title" data-i18n-html="niches.title">Worked across industries.<br>Proven in the toughest ones.</h2>
-      <p class="section-sub" data-i18n="niches.sub">From regulated and high-competition niches to e-commerce and affiliate — I've built organic growth where it's never easy.</p>
+      <p class="section-sub" data-i18n="niches.sub">From regulated and high-competition niches to e-commerce and affiliate. I've built organic growth where it's never easy.</p>
     </div>
     <div class="niche-pills reveal">
       <span class="niche-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg><span data-i18n="niche.igaming">iGaming</span></span>
@@ -873,7 +876,7 @@
         'nav.cta': 'Get in touch',
         'hero.tag': 'Freelance SEO Strategist · 12+ Years Experience',
         'hero.h1': 'Turn organic search into your<br><em>most powerful growth channel.</em>',
-        'hero.sub': 'I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading — including AI and LLM search.',
+        'hero.sub': 'I help businesses grow their organic visibility with data-driven SEO strategy, technical expertise, and a sharp eye on where search is heading, including AI and LLM search.',
         'hero.btn1': 'Explore my services',
         'hero.btn2': "Let's talk",
         'hero.stat1': 'Years in SEO',
@@ -882,36 +885,36 @@
         'hero.stat4': 'iGaming sites managed',
         'services.label': 'What I do',
         'services.title': 'Full-spectrum SEO,<br>from strategy to execution.',
-        'services.sub': 'Whether you need a complete SEO overhaul or targeted support — I cover the full stack.',
+        'services.sub': 'Whether you need a complete SEO overhaul or targeted support. I cover the full stack.',
         's1.title': 'SEO Strategy & Advice',
         's1.desc': 'End-to-end SEO roadmaps tailored to your market and goals. From full site audits to competitive analysis and prioritised action plans that drive real results.',
         's2.title': 'Technical SEO',
-        's2.desc': 'Deep technical analysis and hands-on implementation. Core Web Vitals, crawlability, structured data, site migrations, internal linking — making your site truly search-engine-ready.',
+        's2.desc': 'Deep technical analysis and hands-on implementation. Core Web Vitals, crawlability, structured data, site migrations, internal linking. Making your site truly search-engine-ready.',
         's3.title': 'Content & Link Building',
         's3.desc': "Conversion-focused content briefings, topical authority strategies, and high-quality outreach. I've led full link-building teams and know what it takes to build lasting authority.",
         's4.title': 'LLM & AI Search Optimisation',
-        's4.desc': "Optimising for the future of search. I help brands become visible in ChatGPT, Perplexity, Google's AI Overviews, and other LLM-driven surfaces — before your competitors do.",
+        's4.desc': "Optimising for the future of search. I help brands become visible in ChatGPT, Perplexity, Google's AI Overviews, and other LLM-driven surfaces. Before your competitors do.",
         'about.label': 'About me',
-        'about.title': "Hi, I'm Sjoerd — SEO specialist, builder, and organic growth obsessive.",
-        'about.p1': 'My SEO journey started with a backpack and a sense of curiosity. Sixteen years ago I set out to explore the world — and that same drive for exploration led me to build <strong>Reis-Expert.nl</strong> in 2013, which I grew into one of the leading Dutch travel affiliate platforms with over 200,000 unique monthly visitors.',
-        'about.p2': "The past four years have been shaped by working in one of the most competitive niches on the internet: iGaming. Here, algorithm volatility is extreme, margins are tight, and only data-driven, technically excellent SEO survives. I've thrived in it — managing two of the largest iGaming affiliate sites and leading a full team of SEO specialists and outreach experts.",
+        'about.title': "Hi, I'm Sjoerd. SEO specialist, builder, and organic growth obsessive.",
+        'about.p1': 'My SEO journey started with a backpack and a sense of curiosity. Sixteen years ago I set out to explore the world. That same drive for exploration led me to build <strong>Reis-Expert.nl</strong> in 2013, which I grew into one of the leading Dutch travel affiliate platforms with over 200,000 unique monthly visitors.',
+        'about.p2': "The past four years have been shaped by working in one of the most competitive niches on the internet: iGaming. Here, algorithm volatility is extreme, margins are tight, and only data-driven, technically excellent SEO survives. I've thrived in it, managing two of the largest iGaming affiliate sites and leading a full team of SEO specialists and outreach experts.",
         'about.p3': 'Today I take that experience and apply it to businesses across all sectors.',
         'about.h1': 'Built Reis-Expert.nl to 200,000+ monthly visitors from scratch',
         'about.h2': 'Managed two top-10 iGaming affiliate websites',
-        'about.h3': 'Revived a "dead" domain — tripled traffic and significantly increased conversions',
+        'about.h3': 'Revived a "dead" domain. Tripled traffic and significantly increased conversions',
         'about.h4': 'Led and coached a team of SEO specialists and outreach experts for 18+ months',
-        'about.h5': 'Deep experience with LLM/AI search — where Google is heading next',
+        'about.h5': 'Deep experience with LLM/AI search, where Google is heading next',
         'about.badge': 'Years of SEO',
         'results.label': 'Results',
         'results.title': 'Real results<br>in demanding niches.',
-        'results.sub': 'Numbers that matter — achieved in high-competition environments where only the best SEO wins.',
+        'results.sub': 'Numbers that matter, achieved in high-competition environments where only the best SEO wins.',
         'r1.p': '<strong>Monthly unique visitors</strong> built for Reis-Expert.nl, one of the leading Dutch travel affiliate platforms.',
         'r2.p': '<strong>Traffic tripled</strong> after reviving a near-dead domain through technical cleanup, content restructuring, and authority building.',
-        'r3.p': '<strong>iGaming affiliate sites</strong> managed simultaneously — full technical and content strategy.',
-        'r4.p': '<strong>Team leadership</strong> of SEO specialists and outreach experts — KPIs, process improvements, quality output.',
+        'r3.p': '<strong>iGaming affiliate sites</strong> managed simultaneously. Full technical and content strategy.',
+        'r4.p': '<strong>Team leadership</strong> of SEO specialists and outreach experts. KPIs, process improvements, quality output.',
         'niches.label': 'Experience',
         'niches.title': 'Worked across industries.<br>Proven in the toughest ones.',
-        'niches.sub': "From regulated and high-competition niches to e-commerce and affiliate — I've built organic growth where it's never easy.",
+        'niches.sub': "From regulated and high-competition niches to e-commerce and affiliate. I've built organic growth where it's never easy.",
         'tools.title': 'Tools & platforms I work with',
         'niche.igaming': 'iGaming',
         'niche.travel': 'Travel & Tourism',
@@ -935,7 +938,7 @@
         'nav.cta': 'Neem contact op',
         'hero.tag': 'Freelance SEO Strategist · 12+ Jaar Ervaring',
         'hero.h1': 'Maak organisch zoeken tot je<br><em>krachtigste groeimotor.</em>',
-        'hero.sub': 'Ik help bedrijven hun organische zichtbaarheid te vergroten met datagedreven SEO-strategie, technische expertise en een scherp oog op waar zoekgedrag naartoe gaat — inclusief AI en LLM-zoekgedrag.',
+        'hero.sub': 'Ik help bedrijven hun organische zichtbaarheid te vergroten met datagedreven SEO-strategie, technische expertise en een scherp oog op waar zoekgedrag naartoe gaat, inclusief AI en LLM-zoekgedrag.',
         'hero.btn1': 'Bekijk mijn diensten',
         'hero.btn2': 'Laten we praten',
         'hero.stat1': 'Jaar in SEO',
@@ -944,36 +947,36 @@
         'hero.stat4': 'iGaming sites beheerd',
         'services.label': 'Wat ik doe',
         'services.title': 'Volledig SEO-spectrum,<br>van strategie tot uitvoering.',
-        'services.sub': 'Of je nu een complete SEO-revisie of gerichte ondersteuning nodig hebt — ik dek het volledige spectrum.',
+        'services.sub': 'Of je nu een complete SEO-revisie of gerichte ondersteuning nodig hebt. Ik dek het volledige spectrum.',
         's1.title': 'SEO Strategie & Advies',
         's1.desc': 'End-to-end SEO-roadmaps afgestemd op jouw markt en doelen. Van volledige site-audits tot concurrentieanalyse en geprioriteerde actieplannen die echt resultaat opleveren.',
         's2.title': 'Technische SEO',
-        's2.desc': 'Diepgaande technische analyse en hands-on implementatie. Core Web Vitals, crawlbaarheid, gestructureerde data, site-migraties, interne linking — zodat jouw site echt klaar is voor zoekmachines.',
+        's2.desc': 'Diepgaande technische analyse en hands-on implementatie. Core Web Vitals, crawlbaarheid, gestructureerde data, site-migraties, interne linking. Zodat jouw site echt klaar is voor zoekmachines.',
         's3.title': 'Content & Linkbuilding',
         's3.desc': "Conversiegerichte contentbriefings, topical authority-strategieën en kwalitatieve outreach. Ik heb volledige linkbuilding-teams geleid en weet wat er nodig is om blijvende autoriteit op te bouwen.",
         's4.title': 'LLM & AI Zoekmachine Optimalisatie',
-        's4.desc': "Optimaliseren voor de toekomst van zoeken. Ik help merken zichtbaar te worden in ChatGPT, Perplexity, Google's AI Overviews en andere LLM-gedreven kanalen — voordat je concurrenten dat doen.",
+        's4.desc': "Optimaliseren voor de toekomst van zoeken. Ik help merken zichtbaar te worden in ChatGPT, Perplexity, Google's AI Overviews en andere LLM-gedreven kanalen. Voordat je concurrenten dat doen.",
         'about.label': 'Over mij',
-        'about.title': 'Hoi, ik ben Sjoerd — SEO-specialist, bouwer en organische groei-fanaat.',
-        'about.p1': 'Mijn SEO-verhaal begon met een rugzak en nieuwsgierigheid. Zestien jaar geleden trok ik de wereld in — en diezelfde drang naar ontdekking leidde me in 2013 naar het bouwen van <strong>Reis-Expert.nl</strong>, dat ik uitgroeide tot een van de grootste Nederlandse reisaffiliate-platformen met meer dan 200.000 unieke bezoekers per maand.',
-        'about.p2': 'De afgelopen vier jaar stonden in het teken van een van de meest competitieve niches op het internet: iGaming. Hier is algoritme-volatiliteit extreem, marges zijn krap en alleen datagedreven, technisch excellente SEO overleeft. Ik heb er geflorid — met twee van de grootste iGaming-affiliatesites en leiding over een volledig team van SEO-specialisten en outreach-experts.',
+        'about.title': 'Hoi, ik ben Sjoerd. SEO-specialist, bouwer en organische groei-fanaat.',
+        'about.p1': 'Mijn SEO-verhaal begon met een rugzak en nieuwsgierigheid. Zestien jaar geleden trok ik de wereld in. Diezelfde drang naar ontdekking leidde me in 2013 naar het bouwen van <strong>Reis-Expert.nl</strong>, dat ik uitgroeide tot een van de grootste Nederlandse reisaffiliate-platformen met meer dan 200.000 unieke bezoekers per maand.',
+        'about.p2': 'De afgelopen vier jaar stonden in het teken van een van de meest competitieve niches op het internet: iGaming. Hier is algoritme-volatiliteit extreem, marges zijn krap en alleen datagedreven, technisch excellente SEO overleeft. Ik heb er geflorid, met twee van de grootste iGaming-affiliatesites en leiding over een volledig team van SEO-specialisten en outreach-experts.',
         'about.p3': 'Vandaag pas ik die ervaring toe op bedrijven in alle sectoren.',
         'about.h1': 'Reis-Expert.nl opgebouwd tot 200.000+ maandelijkse bezoekers vanuit nul',
         'about.h2': 'Twee top-10 iGaming-affiliatewebsites beheerd',
-        'about.h3': 'Een "dood" domein nieuw leven ingeblazen — verkeer verdrievoudigd en conversies significant verhoogd',
+        'about.h3': 'Een "dood" domein nieuw leven ingeblazen. Verkeer verdrievoudigd en conversies significant verhoogd',
         'about.h4': 'Een team van SEO-specialisten en outreach-experts geleid en gecoacht gedurende 18+ maanden',
-        'about.h5': 'Diepgaande ervaring met LLM/AI-zoekgedrag — waar Google naartoe gaat',
+        'about.h5': 'Diepgaande ervaring met LLM/AI-zoekgedrag, waar Google naartoe gaat',
         'about.badge': 'Jaar SEO-ervaring',
         'results.label': 'Resultaten',
         'results.title': 'Echte resultaten<br>in veeleisende niches.',
-        'results.sub': 'Cijfers die ertoe doen — behaald in zeer competitieve omgevingen waar alleen de beste SEO wint.',
+        'results.sub': 'Cijfers die ertoe doen, behaald in zeer competitieve omgevingen waar alleen de beste SEO wint.',
         'r1.p': '<strong>Maandelijkse unieke bezoekers</strong> opgebouwd voor Reis-Expert.nl, een van de grootste Nederlandse reisaffiliate-platformen.',
         'r2.p': '<strong>Verkeer verdrievoudigd</strong> na het nieuw leven inblazen van een bijna-dood domein via technische opschoning, content-herstructurering en autoriteitsopbouw.',
-        'r3.p': '<strong>iGaming-affiliatesites</strong> gelijktijdig beheerd — volledige technische en contentstrategie.',
-        'r4.p': '<strong>Teamleiderschap</strong> van SEO-specialisten en outreach-experts — KPI\'s, procesverbeteringen, kwalitatieve output.',
+        'r3.p': '<strong>iGaming-affiliatesites</strong> gelijktijdig beheerd. Volledige technische en contentstrategie.',
+        'r4.p': '<strong>Teamleiderschap</strong> van SEO-specialisten en outreach-experts. KPI\'s, procesverbeteringen, kwalitatieve output.',
         'niches.label': 'Ervaring',
         'niches.title': 'Actief in diverse sectoren.<br>Bewezen in de zwaarste.',
-        'niches.sub': "Van gereguleerde en zeer competitieve niches tot e-commerce en affiliate — ik heb organische groei gerealiseerd waar het nooit makkelijk is.",
+        'niches.sub': "Van gereguleerde en zeer competitieve niches tot e-commerce en affiliate. Ik heb organische groei gerealiseerd waar het nooit makkelijk is.",
         'tools.title': 'Tools & platformen waarmee ik werk',
         'niche.igaming': 'iGaming',
         'niche.travel': 'Reizen & Toerisme',
